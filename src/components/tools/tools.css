@@ -1,0 +1,46 @@
+
+
+#buttons-box{
+    margin-top:2rem;
+}
+#donate-button button{
+    background-color: #82E282;
+}
+#donate-button a{
+    font-size: 1.5rem;
+    padding-left: 1rem;
+}
+
+#download-button button{
+    background-color: orange;
+}
+#download-button a{
+    font-size: 1.5rem;
+    padding-left: 1rem; 
+}
+
+#hide-terminal-button{
+    margin-top:2rem;
+    height:2.5rem;
+}
+#hide-terminal-button button{
+    background-color: gray;
+    color:black
+}
+#hide-terminal-button a{
+    font-size: 1.5rem;
+    padding-left: 1rem;
+}
+
+#show-terminal-button{
+    margin-top:2rem;
+    height:2.5rem;
+}
+#show-terminal-button a{
+    font-size: 1.5rem;
+    padding-left: 1rem;
+}
+#show-terminal-button button{
+    background-color: black;
+    color:white
+}
