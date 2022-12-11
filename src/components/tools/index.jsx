@@ -1,14 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { Button, Icon, Label } from "semantic-ui-react";
+import AppStateContext from "../../context/AppStateContext";
 import "./tools.css";
 import { BsCloudDownload, BsSuitHeart, BsTerminal } from "react-icons/bs";
-const Tools = (props) => {
-  const {
-    showTerminal,
-    setShowTerminal,
-    openDownloadModal,
-    setOpenDownloadModal,
-  } = props;
+const Tools = () => {
+
+  const {showTerminal , show_ter,hide_ter  , show_dl_modal} = useContext(AppStateContext)
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
@@ -25,7 +22,7 @@ const Tools = (props) => {
               id="hide-terminal-button"
               as="div"
               labelPosition="right"
-              onClick={() => setShowTerminal(false)}
+              onClick={hide_ter}
             >
               <Button>Hide Terminal</Button>
               <Label as="a" pointing="left">
@@ -38,7 +35,7 @@ const Tools = (props) => {
               id="show-terminal-button"
               as="div"
               labelPosition="right"
-              onClick={() => setShowTerminal(true)}
+              onClick={show_ter}
             >
               <Button>Show Terminal</Button>
               <Label as="a" pointing="left">
@@ -53,7 +50,7 @@ const Tools = (props) => {
             as="div"
             id="download-button"
             labelPosition="right"
-            onClick={() => setOpenDownloadModal(true)}
+            onClick={show_dl_modal}
           >
             <Button>Download</Button>
             <Label as="a" basic pointing="left">
