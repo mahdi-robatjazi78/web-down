@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { Button, Icon, Label } from "semantic-ui-react";
-import TerminalEmulator from "../terminal/index.jsx";
 import "./tools.css";
-import DownloadModal from "../modals/downloadModal.jsx";
-import { BsCloudDownload ,BsSuitHeart, BsTerminal } from "react-icons/bs";
+import { BsCloudDownload, BsSuitHeart, BsTerminal } from "react-icons/bs";
 const Tools = (props) => {
-  const { showTerminal, setShowTerminal } = props;
-  const [openDownloadModal, setOpenDownloadModal] = useState(false);
+  const {
+    showTerminal,
+    setShowTerminal,
+    openDownloadModal,
+    setOpenDownloadModal,
+  } = props;
+
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <div
@@ -45,22 +48,19 @@ const Tools = (props) => {
           )}
         </div>
         <div id="buttons-box">
-        <Button
-          style={{ height: "2.5rem" }}
-          as="div"
-          id="download-button"
-          labelPosition="right"
-          onClick={()=>setOpenDownloadModal(true)}
-        >
-          <Button>Download</Button>
-          <Label as="a" basic pointing="left">
-            <BsCloudDownload />
-          </Label>
-        </Button>
-            <DownloadModal
-              openDownloadModal={openDownloadModal}
-              setOpenDownloadModal={setOpenDownloadModal}
-            />
+          <Button
+            style={{ height: "2.5rem" }}
+            as="div"
+            id="download-button"
+            labelPosition="right"
+            onClick={() => setOpenDownloadModal(true)}
+          >
+            <Button>Download</Button>
+            <Label as="a" basic pointing="left">
+              <BsCloudDownload />
+            </Label>
+          </Button>
+
           <Button
             style={{ height: "2.5rem" }}
             id="donate-button"
@@ -72,10 +72,8 @@ const Tools = (props) => {
               <BsSuitHeart />
             </Label>
           </Button>
-         
         </div>
       </div>
-      <div>{showTerminal && <TerminalEmulator />}</div>
     </div>
   );
 };
