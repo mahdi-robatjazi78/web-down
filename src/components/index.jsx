@@ -1,13 +1,16 @@
-import React  , {useState} from 'react'
+import React  , {useState , useContext} from 'react'
 import { UrlInputStyled } from "./styled/UrlInput.jsx";
 import Tools from "./tools/index.jsx";
 import { SlMagnifier } from "react-icons/sl";
 import TerminalEmulator from "./terminal/index.jsx";
 import DownloadModal from './modals/downloadModal.jsx';
+import AppStateContext from '../context/AppStateContext'
 
 const Container = () => {
-  const [showTerminal, setShowTerminal] = useState(false);
-  const [openDownloadModal, setOpenDownloadModal] = useState(false);
+
+  const {showTerminal} = useContext(AppStateContext)
+
+
 
   return (
     <div>
@@ -20,21 +23,12 @@ const Container = () => {
         size="huge"
       />
 
-      <Tools 
-        showTerminal={showTerminal}
-        setShowTerminal={setShowTerminal}
-        openDownloadModal={openDownloadModal}
-        setOpenDownloadModal={setOpenDownloadModal}  
-        
-      />
+      <Tools />
 
       <div>{showTerminal && <TerminalEmulator />}</div>
       
       
-      <DownloadModal
-        openDownloadModal={openDownloadModal}
-        setOpenDownloadModal={setOpenDownloadModal}
-      />
+      <DownloadModal />
 
 
 

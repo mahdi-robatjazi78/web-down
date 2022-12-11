@@ -1,30 +1,20 @@
-import React  from 'react'
-import {XTerm} from 'xterm-for-react'
+import React, { useEffect, useContext } from "react";
+import { XTerm } from "xterm-for-react";
+import AppStateContext from "../../context/AppStateContext";
 
-const TerminalEmulator = ()=>{
-  const xtermRef = React.useRef(null)
+const TerminalEmulator = () => {
+  const xtermRef = React.useRef(null);
+  const { terminalData } = useContext(AppStateContext);
 
-  React.useEffect(() => {
-    // You can call any method in XTerm.js by using 'xterm xtermRef.current.terminal.[What you want to call]
-    xtermRef.current.terminal.writeln("Hello, World!")
-  }, [])
+  useEffect(() => {
+    xtermRef.current.terminal.writeln(terminalData);
+  }, [terminalData]);
 
-
-  return(
-
-    <div
-      style={{width:"100%" , height:300 }}
-
-    >
-      <XTerm
-        ref={xtermRef}
-      />
+  return (
+    <div style={{ width: "100%", height: 300 }}>
+      <XTerm ref={xtermRef} />
     </div>
-  )
+  );
+};
 
-
-
-
-}
-
-export default TerminalEmulator
+export default TerminalEmulator;

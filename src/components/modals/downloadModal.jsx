@@ -1,21 +1,22 @@
-import React from "react";
+import React , {useContext} from "react";
 import { Button, Icon, Label, Modal } from "semantic-ui-react";
 import { UrlInputStyled } from "../styled/UrlInput.jsx";
 import "./modal.css";
 import { TfiEmail } from "react-icons/tfi";
+import AppStateContext from "../../context/AppStateContext.jsx";
 
+const DownloadModal = () => {
 
+  const {show_dl_modal , hide_dl_modal ,showDownloadModal} = useContext(AppStateContext)
 
-const DownloadModal = (props) => {
-  const { openDownloadModal, setOpenDownloadModal } = props;
   return (
     <Modal
       id="modal-container"
       dimmer="blurring"
       size="small"
-      open={openDownloadModal}
-      onClose={() => setOpenDownloadModal(false)}
-      onOpen={() => setOpenDownloadModal(true)}
+      open={showDownloadModal}
+      onClose={hide_dl_modal}
+      onOpen={show_dl_modal}
     >
       <Modal.Header>
         <p className="modal-header-text">
@@ -36,7 +37,7 @@ const DownloadModal = (props) => {
         </div>
       </Modal.Content>
       <Modal.Actions>
-        <Button negative onClick={() =>{setOpenDownloadModal(false)}}>
+        <Button negative onClick={hide_dl_modal}>
           Close
         </Button>
         <Button positive>Download</Button>
