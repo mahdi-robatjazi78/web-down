@@ -22,7 +22,7 @@ const Tools = () => {
               id="hide-terminal-button"
               as="div"
               labelPosition="right"
-              onClick={hide_ter}
+              onClick={()=>hide_ter()}
             >
               <Button>Hide Terminal</Button>
               <Label as="a" pointing="left">
@@ -35,7 +35,7 @@ const Tools = () => {
               id="show-terminal-button"
               as="div"
               labelPosition="right"
-              onClick={show_ter}
+              onClick={()=>show_ter()}
             >
               <Button>Show Terminal</Button>
               <Label as="a" pointing="left">
@@ -50,7 +50,7 @@ const Tools = () => {
             as="div"
             id="download-button"
             labelPosition="right"
-            onClick={show_dl_modal}
+            onClick={()=>show_dl_modal()}
           >
             <Button>Download</Button>
             <Label as="a" basic pointing="left">

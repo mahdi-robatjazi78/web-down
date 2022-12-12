@@ -12,7 +12,7 @@ const TerminalEmulator = () => {
 
   return (
     <div style={{ width: "100%", height: 300 }}>
-      <XTerm ref={xtermRef} />
+    <XTerm ref={xtermRef} />
     </div>
   );
 };
