@@ -6,11 +6,11 @@ const CircleWithBarComponent = () => {
   const { loading } = useContext(AppStateContext);
 
   return loading ? (
-    <div className="loading-container">
+    <div>
       <CirclesWithBar
-        height="100"
-        width="100"
-        color="#4fa94d"
+        height="40"
+        width="40"
+        color="black"
         wrapperStyle={{}}
         wrapperClass=""
         visible={true}

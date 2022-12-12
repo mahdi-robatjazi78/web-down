@@ -1,19 +1,20 @@
-import { useState , useContext } from "react";
-import Container from './components'
-import { StyledContainer,StyledCenteral,} from './components/styled/UrlInput'
-import CircleWithBarComponent from './components/loading/circleWithBar'
+import { useState, useContext } from "react";
+import Container from "./components";
+import { StyledContainer, StyledCenteral } from "./components/styled/UrlInput";
 import AppStateContext from "./context/AppStateContext";
-import "./app.css"
+import "./app.css";
+import { Toaster } from "react-hot-toast";
+
 function App() {
-
-
   return (
-    <StyledContainer>
-    <CircleWithBarComponent />
-      <StyledCenteral>
-        <Container />
-      </StyledCenteral>
-    </StyledContainer>
+    <>
+      <Toaster style={{ fontSize: "1.3rem" }} />
+      <StyledContainer>
+        <StyledCenteral>
+          <Container />
+        </StyledCenteral>
+      </StyledContainer>
+    </>
   );
 }
 

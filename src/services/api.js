@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-hot-toast";
 
 const baseUrl = "http://87.107.146.138:9004";
 const secondSlice = "/api/link";
@@ -6,38 +7,27 @@ const secondSlice = "/api/link";
 const AxiosInstance = axios.create({
   baseURL: `${baseUrl}${secondSlice}`,
   timeout: 30000,
-  // headers: {'X-Custom-Header': 'foobar'}
+  headers: { Authorization: "Bearer KCcVf1aEWiHejwMxxixTS3GrNhkYfzYzt07PYXxU" },
 });
 
+AxiosInstance.interceptors.request.use(
+  function (config) {
+    return config;
+  },
+  function (error) {
+    return Promise.reject(error);
+  }
+);
 
+AxiosInstance.interceptors.response.use(
+  function (response) {
+    return response;
+  },
+  function (error) {
+    toast.error(error.response.data.message);
 
-
-// AxiosInstance.interceptors.request.use(
-//   function (config) {
-
-//     if (config.url.startsWith("/download?url=")){
-
-//     }
-
-//     return config;
-//   },
-//   function (error) {
-//     return Promise.reject(error);
-//   }
-// );
-
-// AxiosInstance.interceptors.response.use(
-//   function (response) {
-//     return response;
-//   },
-//   function (error) {
-//     return Promise.reject(error);
-//   }
-// );
-
-
-
-
-
+    return Promise.reject(error);
+  }
+);
 
 export default AxiosInstance;
